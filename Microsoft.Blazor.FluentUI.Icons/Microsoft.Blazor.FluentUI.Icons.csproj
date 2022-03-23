@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>Microsoft.Blazor.FluentUI.Icons</PackageId>
+		<Title>Microsoft FluentUI System Icons for Blazor</Title>
+		<Authors>Microsoft</Authors>
+		<Copyright>Copyright © Microsoft</Copyright>
+		<!--<PackageProjectUrl></PackageProjectUrl>-->
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<!--<RepositoryUrl></RepositoryUrl>-->
+		<AssemblyFileVersion>$(PackageVersion)</AssemblyFileVersion>
+		<!--<PublishRepositoryUrl>true</PublishRepositoryUrl>-->
+		<DebugType>portable</DebugType>
+		<PackageVersion>0.1.0</PackageVersion>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)Generated</CompilerGeneratedFilesOutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="wwwroot\FluentSystemIcons-Filled.ttf" FontNamespace="Microsoft.Blazor.FluentUI.Icons" FontClass="FluentSystemIcons_Filled" />
+		<AdditionalFiles Include="wwwroot\FluentSystemIcons-Regular.ttf" FontNamespace="Microsoft.Blazor.FluentUI.Icons" FontClass="FluentSystemIcons_Regular" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Microsoft.Blazor.FluentUI.Icons.Generator\Microsoft.Blazor.FluentUI.Icons.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+	<Import Project="..\Microsoft.Blazor.FluentUI.Icons.Generator\IconMapsGenerator.props" />
+</Project>

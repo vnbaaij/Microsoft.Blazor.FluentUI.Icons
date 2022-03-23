@@ -1,0 +1,95 @@
+﻿@page "/fluentSystemIconsFilled"
+@using System.Text.RegularExpressions
+
+<style>
+    .preview {
+        margin: 10px;
+        --card-width: 120px;
+        --card-height: 120px;
+        --elevation: 6;
+    }
+
+        .preview:hover {
+            --elevation: 12;
+        }
+
+        .preview .inner {
+            text-align: center;
+            padding: 0 10px 10px;
+            color: var(--neutral-foreground-rest);
+        }
+
+            .preview .inner i {
+                line-height: 85px;
+            }
+
+    .label {
+        text-align: center;
+        padding: 2px 5px;
+        font-size: 10px;
+        font-family: Monaco, monospace;
+        white-space: nowrap;
+        overflow: hidden;
+        background: var(--neutral-stroke-rest);
+    }
+</style>
+
+<PageTitle>Fluent System Icons | Blazor Fluent UI WebAssembly Demo</PageTitle>
+
+<h1>Fluent System Icons - Filled</h1>
+<h2>Overview</h2>
+<p>
+    The Fluent System Icons set is available as 2 TrueType fonts. This page shows the filled icons.<br />
+    <FluentIcon Name=@FluentSystemIcons_Filled.Accessibility Size=(int)IconSize.Size32 Filled=true />
+</p>
+
+<div id="filled" data-is-scrollable="true" style="overflow-y:auto;height:600px;">
+    <div style="display:flex;flex-flow: row wrap;">
+        @foreach (IconModel? icon in filledIcons)
+        {
+            <FluentCard class="preview">
+                <div class="inner" style="font-size: @(icon.Size)px">
+                    <FluentIcon Name=@icon.Name Size=@icon.Size Filled=@icon.IsFilled />
+                </div>
+                <div class="label">@icon.Name (@icon.Size)</div>
+            </FluentCard>
+        }
+    </div>
+</div>
+
+
+@code {
+    List<IconModel> filledIcons = new();
+
+
+    protected override void OnInitialized()
+    {
+        filledIcons = filterIcons();
+        return;
+    }
+
+    private List<IconModel> filterIcons()
+    {
+        Regex regex = new Regex(@"(\w*)_(\d*)_(\w*)", RegexOptions.Compiled);
+
+        List<IconModel> data = FluentSystemIcons_Filled.IconMap.Select(x =>
+        {
+            var matches = regex.Matches(x.Key);
+            if (matches.Count > 0)
+            {
+                IconModel model = new IconModel()
+                    {
+                        Name = matches[0].Groups[1].Value,
+                        Size = int.Parse(matches[0].Groups[2].Value),
+                        IsFilled = matches[0].Groups[3].Value == "filled" ? true : false
+                    };
+                return model;
+            }
+            else
+                return new IconModel();
+        })
+        .OrderBy(t => t.Name).ThenBy(t => t.Size).ToList();
+
+        return data;
+    }
+ }

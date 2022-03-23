@@ -1,0 +1,16 @@
+﻿@namespace Microsoft.Blazor.FluentUI.Icons
+
+<i class=@($"{this.ClassName}")
+   data-icon-name=@Name
+   role="presentation"
+   
+   @attributes=@AdditionalAttributes>
+   @if (Filled)
+   {
+        @(FluentSystemIcons_Filled.IconMap.ContainsKey(ComposedName) ? FluentSystemIcons_Filled.IconMap[ComposedName] : "")
+   }
+   else
+   {
+        @(FluentSystemIcons_Regular.IconMap.ContainsKey(ComposedName) ? FluentSystemIcons_Regular.IconMap[ComposedName] : "")
+   }
+</i>

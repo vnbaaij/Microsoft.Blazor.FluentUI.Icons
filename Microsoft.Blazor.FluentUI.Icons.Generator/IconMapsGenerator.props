@@ -1,0 +1,6 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<CompilerVisibleItemMetadata Include="AdditionalFiles" MetadataName="FontNamespace" />
+		<CompilerVisibleItemMetadata Include="AdditionalFiles" MetadataName="FontClass" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ImplicitUsings>false</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<LangVersion>9.0</LangVersion>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<Authors>Microsoft</Authors>
+		<Copyright>Copyright © Microsoft</Copyright>
+		<AssemblyFileVersion>$(PackageVersion)</AssemblyFileVersion>
+		<DebugType>portable</DebugType>
+		<PackageVersion>0.1.0</PackageVersion>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Reference Include="Typography.OpenFont">
+		<HintPath>..\libs\Typography.OpenFont.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+	
+	<PropertyGroup>
+		<GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+	</PropertyGroup>
+
+	<Target Name="GetDependencyTargetPaths">
+		<ItemGroup>
+			<TargetPathWithTargetPlatformMoniker Include="$(MSBuildThisFileDirectory)\..\libs\Typography.OpenFont.dll" IncludeRuntimeDependency="false" />
+		</ItemGroup>
+	</Target>
+</Project>
