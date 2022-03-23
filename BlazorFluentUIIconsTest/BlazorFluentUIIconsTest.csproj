@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<None Remove="FluentSystemIcons-Filled.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
 	<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.3" />
 	<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.3" PrivateAssets="all" />
 	<PackageReference Include="Microsoft.Fast.Components.FluentUI" Version="1.*" />
@@ -19,11 +15,5 @@
 
   <ItemGroup>
 	<ProjectReference Include="..\Microsoft.Blazor.FluentUI.Icons\Microsoft.Blazor.FluentUI.Icons.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-	<Reference Include="Typography.OpenFont">
-	  <HintPath>..\libs\Typography.OpenFont.dll</HintPath>
-	</Reference>
   </ItemGroup>
 </Project>
