@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="FluentSystemIcons-Filled.ttf" />
+	<None Remove="FluentSystemIcons-Filled.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,20 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Blazor.FluentUI.Icons\Microsoft.Blazor.FluentUI.Icons.csproj" />
+	<ProjectReference Include="..\Microsoft.Blazor.FluentUI.Icons\Microsoft.Blazor.FluentUI.Icons.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Typography.OpenFont">
-      <HintPath>..\libs\Typography.OpenFont.dll</HintPath>
-    </Reference>
+	<Reference Include="Typography.OpenFont">
+	  <HintPath>..\libs\Typography.OpenFont.dll</HintPath>
+	</Reference>
   </ItemGroup>
-	<PropertyGroup>
-		<!-- Excludes Filled -->
-		<ExcludeFluentUIFilledIcons>True</ExcludeFluentUIFilledIcons>
-
-		<!-- Excludes Regular -->
-		<ExcludeFluentUIRegularIcons>True</ExcludeFluentUIRegularIcons>
-	</PropertyGroup>
-
 </Project>
