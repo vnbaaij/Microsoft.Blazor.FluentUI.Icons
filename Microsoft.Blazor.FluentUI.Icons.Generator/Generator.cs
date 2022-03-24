@@ -1,26 +1,49 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using BrotliSharpLib;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Typography.OpenFont;
+using Typography.OpenFont.WebFont;
 
 #nullable enable
 
 namespace Microsoft.Blazor.FluentUI.Icons.Generator
 {
     [Generator]
-    public class IconMapsGenerator : ISourceGenerator
+    public class Generator : ISourceGenerator
     {
         public void Execute(GeneratorExecutionContext context)
         {
+            Woff2DefaultBrotliDecompressFunc.DecompressHandler = (byte[] compressedBytes, Stream output) =>
+            {
+                bool result = false;
+                try
+                {
+                    using (MemoryStream ms = new(compressedBytes))
+                    using (var decompressStream = new BrotliStream(ms, CompressionMode.Decompress))
+                    {
+                        decompressStream.CopyTo(output);
+                    }
+
+                    result = true;
+                }
+                catch (Exception)
+                {
+
+                }
+                return result;
+            };
+
             Dictionary<string, string[]>? fontSources = new();
 
-            IEnumerable<AdditionalText> FontFiles = context.AdditionalFiles.Where(at => at.Path.EndsWith(".ttf"));
+            IEnumerable<AdditionalText> FontFiles = context.AdditionalFiles.Where(at => at.Path.EndsWith(".woff2"));
 
 
             // Get the Class name to use for generating the source from the itemgroup item's ClassName attribute

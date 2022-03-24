@@ -1,11 +1,11 @@
 ﻿@font-face {
     font-family: "FluentSystemIcons-Filled";
-    src: url("FluentSystemIcons-Filled.ttf") format("truetype");
+    src: url("FluentSystemIcons-Filled.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "FluentSystemIcons-Regular";
-    src: url("FluentSystemIcons-Regular.ttf") format("truetype");
+    src: url("FluentSystemIcons-Regular.woff2") format("woff2");
 }
 
 i[class*="_filled"] {

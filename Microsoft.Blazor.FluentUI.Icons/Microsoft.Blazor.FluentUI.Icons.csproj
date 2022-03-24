@@ -25,16 +25,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<AdditionalFiles Include="wwwroot\FluentSystemIcons-Filled.ttf" FontNamespace="Microsoft.Blazor.FluentUI.Icons" FontClass="FluentSystemIcons_Filled" />
-		<AdditionalFiles Include="wwwroot\FluentSystemIcons-Regular.ttf" FontNamespace="Microsoft.Blazor.FluentUI.Icons" FontClass="FluentSystemIcons_Regular" />
+		<AdditionalFiles Include="wwwroot\FluentSystemIcons-Filled.woff2" FontNamespace="Microsoft.Blazor.FluentUI.Icons" FontClass="FluentSystemIcons_Filled" />
+		<AdditionalFiles Include="wwwroot\FluentSystemIcons-Regular.woff2" FontNamespace="Microsoft.Blazor.FluentUI.Icons" FontClass="FluentSystemIcons_Regular" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Microsoft.Blazor.FluentUI.Icons.Generator\Microsoft.Blazor.FluentUI.Icons.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
-	<Import Project="..\Microsoft.Blazor.FluentUI.Icons.Generator\IconMapsGenerator.props" />
+	<Import Project="..\Microsoft.Blazor.FluentUI.Icons.Generator\Generator.props" />
 </Project>

@@ -92,7 +92,7 @@
             else
                 return new IconModel();
         })
-        .OrderBy(t => t.Name).ThenBy(t => t.Size).Take(100).ToList();
+        .OrderBy(t => t.Name).ThenBy(t => t.Size).ToList();
 
         return data;
     }
